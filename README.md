@@ -8,6 +8,10 @@ FORMAT: 1A
 ## sendgamedata [/api/device/regData{?game_token,device_id,event_type,data,time,sign}]
 
 ### 上报数据日志接口 [post]
+例：gameid=1 的key为 zcvbnfgdfgertert4rfgfgdfgs  
+加密字段：game_token,device_id,event_type,time  
+加密方式:加密字段按首字母sort排序 
+sign=md5(device_id=832C1D16-4270-4887845DF91DD01403AA&event_type=1&game_token=25937484000257283130&time=1525918544&key) 
    
 + Parameters
     + game_token: `25937484000257283130` (string, required) - 单次游戏的唯一token 
