@@ -13,7 +13,7 @@ FORMAT: 1A
     + game_token: `25937484000257283130` (string, required) - 单次游戏的唯一token 
     + device_id: `832C1D16-4270-4887-845D-F91DD01403AA` (string, required) 设备号  
     + event_type: `1` (string, required) 发送的数据事件类型 （注册）
-    + data: `RegData Base` (string, required) - 具体上报数据
+    + data: `` (json, required) - 具体上报数据
     + time: `1525918544` (string, required) 时间戳（精确到s）
     + sign: `fdgfgdfgdfgdfgdfgfgfdgfdgfdgfdg` (string, required) 加密字符串 
 	
