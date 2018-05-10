@@ -5,21 +5,17 @@ FORMAT: 1A
 
 # Group sendgamedata
 		
-## sendgamedata [/api/device/regData{?game_token,device_id,event_type,data,time,sign}]
+## sendgamedata [/api/device/regData]
 
-### 上报数据日志接口 [post]
-例：gameid=1 的key为 zcvbnfgdfgertert4rfgfgdfgs  
-加密字段：game_token,device_id,event_type,time  
-加密方式:加密字段按首字母sort排序 
-sign=md5(device_id=832C1D16-4270-4887845DF91DD01403AA&event_type=1&game_token=25937484000257283130&time=1525918544&key) 
+### 上报数据日志接口 [POST]
    
 + Parameters
     + game_token: `25937484000257283130` (string, required) - 单次游戏的唯一token 
-    + device_id: `832C1D16-4270-4887-845D-F91DD01403AA` (string, required) 设备号  
-    + event_type: `1` (string, required) 发送的数据事件类型 （注册）
+    + device_id: `832C1D16-4270-4887-845D-F91DD01403AA` (string, required)  - 设备号  
+    + event_type: `1` (string, required)  - 发送的数据事件类型 （注册）
     + data: `` (json, required) - 具体上报数据
-    + time: `1525918544` (string, required) 时间戳（精确到s）
-    + sign: `fdgfgdfgdfgdfgdfgfgfdgfdgfdgfdg` (string, required) 加密字符串 
+    + time: `1525918544` (string, required)  - 时间戳（精确到s）
+    + sign: `fdgfgdfgdfgdfgdfgfgfdgfdgfdgfdg` (string, required)  - 加密字符串 
 	
 + Request (application/json)
   
@@ -32,3 +28,4 @@ sign=md5(device_id=832C1D16-4270-4887845DF91DD01403AA&event_type=1&game_token=25
               "code": 0,
 	          "msg":"success"
             }
+
