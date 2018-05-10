@@ -1,119 +1,33 @@
-![logo](assets/logo_apiblueprint.png)
+FORMAT: 1A
 
-# API Blueprint
-### API Design for Humans
+# VR项目game上报数据接口
+本文档主要对 VR项目中游戏对后面请求接口数据进行描述.
 
-[![slack](https://apiblueprint-slack.herokuapp.com/badge.svg)](https://apiblueprint-slack.herokuapp.com/)
+# Group sendgamedata
+		
+## Sendgamedata [/api/recivesend/senddata{?game_token,device_id,event_type,data,time,sign}]
 
-A powerful high-level API design language for web APIs.
+### 上报数据日志接口 [post]
+例：gameid=1 的key为 zcvbnfgdfgertert4rfgfgdfgs 
+加密字段：game_token,device_id,event_type,time 
+加密方式:加密字段按首字母sort排序 sign=md5(device_id=832C1D16-4270-4887-845D-F91DD01403AA&event_type=1&game_token=25937484000257283130&time=1525918544&key) 
+   
++ Parameters
+    + game_token: `25937484000257283130` (string, required) - 单次游戏的唯一token 
+    + device_id: `832C1D16-4270-4887-845D-F91DD01403AA` (string, required) 设备号  
+    + event_type: 1 (string, required) - 发送的数据事件类型 （注册）
+    + data: `RegData Base` (string, required) - 具体上报数据
+    + time: `1525918544` (string, required) 时间戳（精确到s）
+    + sign: `fdgfgdfgdfgdfgdfgfgfdgfdgfdgfdg` (string, required) 加密字符串 
+	
++ Request (application/json)
+  
++ Response 200 (application/json)
 
-API Blueprint is simple and accessible to everybody involved in the API design
-lifecycle. Its syntax is concise yet expressive.
+    + Headers
+    + Body
 
-With API Blueprint you can quickly prototype and model APIs to be created or
-describe already deployed mission-critical APIs. From a [car][tesla] to the
-largest Content Distribution Network (CDN) in the world.
-
-The API Blueprint is built to encourage dialogue and collaboration between
-project stakeholders, developers and customers at any point in the API
-lifecycle. At the same time, the API Blueprint [tools][] provide the support to
-achieve the goals be it API development, governance or delivery.
-
-![API Blueprint Lifecycle](assets/lifecycle.png)
-
-[tesla]: https://github.com/timdorr/model-s-api/blob/master/apiary.apib
-[tools]: http://apiblueprint.org/tools.html
-
-## Open Source
-API Blueprint is completely open sourced under the MIT license.
-Any [contribution][contribute] is highly appreciated.
-
-[contribute]: #contribute
-
-## At home on GitHub
-API Blueprint language is recognized by GitHub. You can
-[search for API Blueprint][search] or use the `apib` language identifier for
-[syntax highlighting][gfm].
-
-[search]: https://github.com/search?utf8=%E2%9C%93&q=language%3A%22API+Blueprint%22&type=Repositories&ref=advsearch&l=API+Blueprint&l=
-
-[gfm]: https://help.github.com/articles/github-flavored-markdown/#syntax-highlighting
-
-## Getting started
-All it takes to describe an endpoint of your API is to write:
-
-```apib
-# GET /message
-+ Response 200 (text/plain)
-
-        Hello World!
-```
-
-in your favorite plain text editor.
-
-With this blueprint you can already get a [mock][], [documentation][] and
-[test][] for your API before you even start coding.
-
-To learn more about the API Blueprint syntax jump directly to the
-[API Blueprint Tutorial][tutorial] or take a look at some [examples][].
-
-[mock]: http://docs.apibstart.apiary.io/#reference/0/message/get?console=1
-[documentation]: http://docs.apibstart.apiary.io
-[test]: http://dredd.readthedocs.org/en/latest/
-[tutorial]: Tutorial.md
-[examples]: https://github.com/apiaryio/api-blueprint/tree/master/examples
-
-## Media Type
-The media type for API Blueprint is `text/vnd.apiblueprint`.
-
-## Learn more
-- [Tutorial][tutorial]
-- [Advanced Tutorial][advanced_tutorial]
-- [Examples][examples]
-- [Wiki][wiki]
-- [Glossary of Terms][glossary]
-- [Specification][specification]
-- [List of Tools][tools]
-- [Developers][developers]
-
-[advanced_tutorial]: Advanced%20Tutorial.md
-[glossary]: Glossary%20of%20Terms.md
-[specification]: API%20Blueprint%20Specification.md
-[wiki]: https://github.com/apiaryio/api-blueprint/wiki
-[developers]: https://apiblueprint.org/developers.html
-
-## Future
-The plans for API Blueprint are completely tracked on GitHub – see the
-[API Blueprint Roadmap][roadmap].
-
-[roadmap]: https://github.com/apiaryio/api-blueprint/wiki/Roadmap
-
-## Developers
-Building tools for API Blueprint is possible thanks to its machine-friendly face
-provided by API Blueprint parser.
-
-If you are interested in building tools for API Blueprint check out the
-[Developing tools for API Blueprint][developers].
-
-## Contribute
-Feel free report problems or propose new ideas using the API Blueprint GitHub
-[issues][].
-
-We use an RFC process for proposing any substantial changes to the API
-Blueprint language, specification and/or parsers.
-
-If you would like to propose a change, please consult our
-[RFC process][rfc].
-
-[issues]: https://github.com/apiaryio/api-blueprint/issues
-[rfc]: https://github.com/apiaryio/api-blueprint-rfcs
-
-## Get in Touch
-- [@apiblueprint](https://twitter.com/apiblueprint)
-- [Slack](https://apiblueprint-slack.herokuapp.com/)
-- [Stack Overflow](http://stackoverflow.com/questions/tagged/apiblueprint)
-- [GitHub Issues][issues]
-
-## License
-MIT License. See the [LICENSE](https://github.com/apiaryio/api-blueprint/blob/master/LICENSE)
-file.
+            {
+              "code": 0,
+			  "msg":"success"
+            }
