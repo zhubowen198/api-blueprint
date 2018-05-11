@@ -111,7 +111,7 @@ HOST: http://vrapi.ledu.com
     + game_token: `25937484000257283130` (string, optional) - 单次游戏的唯一token 
     + gameid: `1` (string, optional) - 注册的游戏编号（由服务端定义） 
     + device_id: `832C1D16-4270-4887-845D-F91DD01403AA` (string, optional)  - 设备号  
-    + event_type: `1` (string, optional)  - 发送的数据事件类型 （是否可以拉起游戏）
+    + event_type: `2` (string, optional)  - 发送的数据事件类型 （是否可以继续游戏）
     + time: `1525918544` (string, optional)  - 时间戳（精确到s）
     + sign: `fdgfgdfgdfgdfgdfgfgfdgfdgfdgfdg` (string, optional)  - 加密字符串 
 	
