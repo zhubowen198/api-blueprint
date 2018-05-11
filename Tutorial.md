@@ -24,7 +24,6 @@ FORMAT: 1A
               "gameid":1,//注册的游戏编号（由服务端定义）
 			  "id":1,//用户的唯一标识id
 			  "nick":"zhubowen",//昵称,
-			  "logo":"http:image.ledu.com/1.jpg",//头像
 			  "union_id":"oQThqweSPYlUt8R3f7iji3AEz8G8" //微信的union_id
             }
 			
