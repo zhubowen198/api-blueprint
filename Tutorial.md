@@ -1,11 +1,12 @@
 FORMAT: 1A
+HOST: https://alpha-api.app.net
 
 # VR项目game数据接口的data json定义
 本文档主要对 VR项目中游戏对后端请求接口数据data进行描述.
 
 
 # Group sendgamedata
-上报日志包括（1.注册日志 2.登录日志 3.玩家行为日志）	
+上报日志包括（1.注册日志 2.登录日志 3.玩家行为日志 4.游戏异常）	
 ## sendgamedata 
 
 ### 一：上报数据日志接口---注册日志data
@@ -21,11 +22,9 @@ FORMAT: 1A
     + Body
 
             {
-              "gameid":1,//注册的游戏编号（由服务端定义）
-			  "id":1,//用户的唯一标识id
-			  "nick":"zhubowen",//昵称,
-			  "union_id":"oQThqweSPYlUt8R3f7iji3AEz8G8" //微信的union_id
-            }
+			  "gameuniqureid":1,//游戏中的唯一id
+			  "vrplatid":"oQThqweSPYlUt8R3f7iji3AEz8G8" //vr平台传递的唯一标识
+			  "registertime“:1525918544,//注册时间
 			
 ## sendgamedata 
 
@@ -42,9 +41,8 @@ FORMAT: 1A
     + Body
 
             {
-			  "id":1,//用户的唯一标识id
-			  "nick":"zhubowen",//昵称,
-			  "union_id":"oQThqweSPYlUt8R3f7iji3AEz8G8", //微信的union_id
+			  "gameuniqureid":1,//游戏中的唯一id
+			  "vrplatid":"oQThqweSPYlUt8R3f7iji3AEz8G8" //vr平台传递的唯一标识
 			  "login_type":1, //1 登入 2登出
 			  "create_time":1525918544,//操作时间
             }
@@ -64,20 +62,39 @@ FORMAT: 1A
     + Body
 
              {
-              "gameid":1,//注册的游戏编号（由服务端定义）
-			  "id":1,//用户的唯一标识id
-			  "nick":"zhubowen",//昵称,
-			  "union_id":"oQThqweSPYlUt8R3f7iji3AEz8G8", //微信的union_id
-			  "oparate_type”：1,//1 游戏开始 2结束关卡 3 继续游戏 4退出游戏
+              "gameuniqureid":1,//游戏中的唯一id
+			  "vrplatid":"oQThqweSPYlUt8R3f7iji3AEz8G8" //vr平台传递的唯一标识
+			  "oparate_type”：1,//1 游戏开始 2.加载结束 3结束关卡 4 继续游戏 5退出游戏
 			  "checkpoint"：1,//当前关卡
 			  "create_time":1525918544,//操作时间
 
             }
 			
+## sendgamedata 
+
+### 四：上报数据日志接口--设备异常 data
+   
++ Parameters
+	
++ Request (application/json)
+  
++ Response 200 (application/json)
+
+    + Headers
+	
+    + Body
+
+             {
+			  "gameuniqureid":1,//游戏中的唯一id
+			  "vrplatid":"oQThqweSPYlUt8R3f7iji3AEz8G8" //vr平台传递的唯一标识
+			  "errorcode"：1,//错误码
+			  "error_msg":"头盔异常",//异常提示
+            }
+			
 			
 			
 # Group oparatedata
-上报操作日志包括（1 游戏开始 2结束关卡 3 继续游戏 4退出游戏）
+上报操作日志包括（1 游戏开始 2.加载结束 3结束关卡 4 继续游戏 5退出游戏）
 		
 ## oparatedata 
 
@@ -96,6 +113,26 @@ FORMAT: 1A
             {
               "checkpoint"：1,//当前关卡
 	          "create_time":1525918544,//开始时间
+            }
+			
+			
+## oparatedata 
+
+### 上报操作日志--加载结束
+   
++ Parameters
+	
++ Request (application/json)
+  
++ Response 200 (application/json)
+
+    + Headers
+	
+    + Body
+
+            {
+              "checkpoint"：1,//当前关卡
+	          "create_time":1525918544,//加载结束时间
             }
 			
 			
