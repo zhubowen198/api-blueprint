@@ -1,5 +1,4 @@
 FORMAT: 1A
-HOST: https://alpha-api.app.net
 
 # VR项目game数据接口的data json定义
 本文档主要对 VR项目中游戏对后端请求接口数据data进行描述.
